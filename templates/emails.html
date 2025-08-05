@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Gmail Inbox</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        .email {
+            border: 1px solid #ccc;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+        }
+        .subject {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .sender {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fetched Emails</h1>
+    {% if emails %}
+        {% for email in emails %}
+            <div class="email">
+                <div class="subject">{{ email.subject }}</div>
+                <div class="sender">From: {{ email.sender }}</div>
+                <p>{{ email.snippet }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No emails found.</p>
+    {% endif %}
+</body>
+</html>
